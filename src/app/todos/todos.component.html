@@ -1,0 +1,33 @@
+<header class="header">
+  <h1>todos</h1>
+  <todo-form
+    [todoExisting]="todoExisting"
+    [allSelected]="allSelected"
+    (add)="onAdd($event)"
+    (selectAll)="selectAll()">
+  </todo-form>
+</header>
+
+<ng-container *ngIf="(todos$ | async) as todos;">
+  <section class="main" [ngClass]="{'hidden': todos.length < 1}">
+    <todo-list [todos]="todos"></todo-list>
+  </section>
+
+  <p class="no-matches" [ngClass]="{'hidden': todos.length}">No matches</p>
+
+  <footer class="footer">
+    <span class="todo-count">{{ activeTodos }} left</span>
+    <ul class="filters">
+      <li>
+        <a routerLink='.' [class.selected]="!activeFragment">All</a>
+      </li>
+      <li>
+        <a routerLink='.' fragment="active" [class.selected]="activeFragment === 'active'">Active</a>
+      </li>
+      <li>
+        <a routerLink='.' fragment="completed" [class.selected]="activeFragment === 'completed'">Completed</a>
+      </li>
+    </ul>
+    <button *ngIf="completedTodos" class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+  </footer>
+</ng-container>

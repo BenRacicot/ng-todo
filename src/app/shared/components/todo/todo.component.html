@@ -1,0 +1,16 @@
+<form [ngClass]="{'editing': editing, 'completed': todo.completed}"
+  class="todo__form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  (keydown.enter)="onSubmit()">
+  <div class="view">
+    <div class="todo__select-btn" (click)="selectTodo()"></div>
+    <p class="todo__content"
+      propValueAccessor="innerHTML"
+      formControlName="content"
+      (dblclick)="doubleClick($event)"
+      [contenteditable]="editing">
+    </p>
+    <button class="destroy" (click)="destroy()"></button>
+  </div>
+</form>
