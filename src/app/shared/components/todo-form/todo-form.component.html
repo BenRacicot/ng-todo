@@ -1,0 +1,15 @@
+<button class="toggle-btn" 
+    type="button" 
+    [ngClass]="{'all-selected': allSelected, 'invisible': !todoExisting }" 
+    (click)="toggleAll()">❯
+</button>
+
+<form class="todo__form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  enctype="application/x-www-form-urlencoded"
+  role="form"
+  novalidate>
+  <input id="new-todo" class="todo__newtodo" type='text' formControlName="newTodo" placeholder='What needs to be done'/>
+  <label class="screen-reader-only" for="new-todo">What needs to be done</label>
+</form>
