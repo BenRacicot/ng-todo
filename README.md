@@ -1,5 +1,5 @@
 # ng-todo is
-An opinionated Angular approach of [Todo MVC](http://todomvc.com/)
+An example of best practice Angular Application Architecture of [Todo MVC](http://todomvc.com/)
 
 Including:
  - NgRx state management (not needed for 99% of applications) RxJS offers 99% of NgRx's features for free
